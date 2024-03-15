@@ -3,11 +3,15 @@
  */
 const config = {
     // the url of the GraphHopper routing backend, either use graphhopper.com or point it to your own GH instance
-    routingApi: 'https://graphhopper.com/api/1/',
+    // routingApi: 'https://graphhopper.com/api/1/',
+    routingApi: 'http://localhost:8989/',
+
     // the url of the geocoding backend, either use graphhopper.com or point it to another geocoding service. use an empty string to disable the address search
     geocodingApi: 'https://graphhopper.com/api/1/',
     // the tile layer used by default, see MapOptionsStore.ts for all options
-    defaultTiles: 'OpenStreetMap',
+    // defaultTiles: 'OpenStreetMap',
+    defaultTiles: 'OS Maps API Outdoor',
+
     // various api keys used for the GH backend and the different tile providers
     keys: {
         graphhopper: 'bfb9d728-3732-4542-9e92-f638ac1c9f3a',
@@ -15,6 +19,7 @@ const config = {
         omniscale: 'missing_api_key',
         thunderforest: 'missing_api_key',
         kurviger: 'missing_api_key',
+        ordsvy: 'INSERT_API_KEY_HERE',
     },
     // if true there will be an option to enable the GraphHopper routing graph and the urban density visualization in the layers menu
     routingGraphLayerAllowed: false,
@@ -23,13 +28,13 @@ const config = {
         details: [
             'road_class',
             'road_environment',
-            'road_access',
-            'surface',
-            'max_speed',
-            'average_speed',
-            'toll',
-            'track_type',
-            'country',
+            // 'road_access',
+            // 'surface',
+            // 'max_speed',
+            // 'average_speed',
+            // 'toll',
+            // 'track_type',
+            // 'country',
         ],
         snapPreventions: ['ferry'],
     },

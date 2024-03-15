@@ -13,9 +13,13 @@ const osApiKey = config.keys.omniscale
 const mapTilerKey = config.keys.maptiler
 const thunderforestApiKey = config.keys.thunderforest
 const kurvigerApiKey = config.keys.kurviger
+const ordsvyApiKey = config.keys.ordsvy
 
 const osmAttribution =
     '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
+
+const ordsvyAttribution = 
+    'Contains OS data &copy; Crown copyright and database rights ' + new Date().getFullYear()
 
 export interface MapOptionsStoreState {
     styleOptions: StyleOption[]
@@ -179,20 +183,51 @@ const wanderreitkarte: RasterStyle = {
     attribution: osmAttribution + ', <a href="https://wanderreitkarte.de" target="_blank">WanderReitKarte</a>',
     maxZoom: 18,
 }
+const osMapsApiLight: RasterStyle = {
+    name: 'OS Maps API Light',
+    type: 'raster',
+    url: ['https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=' + ordsvyApiKey],
+    attribution: ordsvyAttribution,
+    maxZoom: 20,
+}
+const osMapsApiOutdoor: RasterStyle = {
+    name: 'OS Maps API Outdoor',
+    type: 'raster',
+    url: ['https://api.os.uk/maps/raster/v1/zxy/Outdoor_3857/{z}/{x}/{y}.png?key=' + ordsvyApiKey],
+    attribution: ordsvyAttribution,
+    maxZoom: 20,
+}
+const osMapsApiRoad: RasterStyle = {
+    name: 'OS Maps API Road',
+    type: 'raster',
+    url: ['https://api.os.uk/maps/raster/v1/zxy/Road_3857/{z}/{x}/{y}.png?key=' + ordsvyApiKey],
+    attribution: ordsvyAttribution,
+    maxZoom: 20,
+}
+const osNgdApiTiles: VectorStyle = {
+    name: 'OS NGD Tiles API',
+    type: 'vector',
+    url: 'http://localhost/prototyping/os-data-hub/maps/vector/styles/ota?key=' + ordsvyApiKey,
+    attribution: ordsvyAttribution,
+}
 
 const styleOptions: StyleOption[] = [
-    omniscale,
+    // omniscale,
     osmOrg,
-    osmCycl,
-    esriSatellite,
-    mapTilerSatellite,
-    tfTransport,
-    tfCycle,
-    tfOutdoors,
-    kurviger,
-    mapillion,
-    lyrk,
-    wanderreitkarte,
+    // osmCycl,
+    // esriSatellite,
+    // mapTilerSatellite,
+    // tfTransport,
+    // tfCycle,
+    // tfOutdoors,
+    // kurviger,
+    // mapillion,
+    // lyrk,
+    // wanderreitkarte,
+    osMapsApiLight,
+    osMapsApiOutdoor,
+    osMapsApiRoad,
+    // osNgdApiTiles,
 ]
 
 export default class MapOptionsStore extends Store<MapOptionsStoreState> {

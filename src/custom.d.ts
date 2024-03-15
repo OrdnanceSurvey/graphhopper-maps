@@ -14,6 +14,7 @@ declare module 'config' {
         maptiler: string
         thunderforest: string
         kurviger: string
+        ordsvy: string
     }
     const request: {
         details: string[]
