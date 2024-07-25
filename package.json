@@ -20,8 +20,8 @@
         "heightgraph": "github:easbar/Leaflet.Heightgraph#5f4f0b1fff3646aa071981381f5955c9e6f111f0",
         "ol": "9.0.0",
         "ol-mapbox-style": "12.2.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "react-responsive": "^9.0.0"
     },
     "devDependencies": {
